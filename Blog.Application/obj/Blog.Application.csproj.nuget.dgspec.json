@@ -1,0 +1,207 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\VsCodespace\\2020\\_Self\\Blog\\Blog.Application\\Blog.Application.csproj": {}
+  },
+  "projects": {
+    "D:\\VsCodespace\\2020\\_Self\\Blog\\Blog.Application\\Blog.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\VsCodespace\\2020\\_Self\\Blog\\Blog.Application\\Blog.Application.csproj",
+        "projectName": "Blog.Application",
+        "projectPath": "D:\\VsCodespace\\2020\\_Self\\Blog\\Blog.Application\\Blog.Application.csproj",
+        "packagesPath": "C:\\Users\\Looooooooop\\.nuget\\packages\\",
+        "outputPath": "D:\\VsCodespace\\2020\\_Self\\Blog\\Blog.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Looooooooop\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "D:\\VsCodespace\\2020\\_Self\\Blog\\Blog.Contract\\Blog.Contract.csproj": {
+                "projectPath": "D:\\VsCodespace\\2020\\_Self\\Blog\\Blog.Contract\\Blog.Contract.csproj"
+              },
+              "D:\\VsCodespace\\2020\\_Self\\Blog\\Blog.Core\\Blog.Core.csproj": {
+                "projectPath": "D:\\VsCodespace\\2020\\_Self\\Blog\\Blog.Core\\Blog.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "FluentValidation.AspNetCore": {
+              "target": "Package",
+              "version": "[8.6.2, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\VsCodespace\\2020\\_Self\\Blog\\Blog.Contract\\Blog.Contract.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\VsCodespace\\2020\\_Self\\Blog\\Blog.Contract\\Blog.Contract.csproj",
+        "projectName": "Blog.Contract",
+        "projectPath": "D:\\VsCodespace\\2020\\_Self\\Blog\\Blog.Contract\\Blog.Contract.csproj",
+        "packagesPath": "C:\\Users\\Looooooooop\\.nuget\\packages\\",
+        "outputPath": "D:\\VsCodespace\\2020\\_Self\\Blog\\Blog.Contract\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Looooooooop\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\VsCodespace\\2020\\_Self\\Blog\\Blog.Core\\Blog.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\VsCodespace\\2020\\_Self\\Blog\\Blog.Core\\Blog.Core.csproj",
+        "projectName": "Blog.Core",
+        "projectPath": "D:\\VsCodespace\\2020\\_Self\\Blog\\Blog.Core\\Blog.Core.csproj",
+        "packagesPath": "C:\\Users\\Looooooooop\\.nuget\\packages\\",
+        "outputPath": "D:\\VsCodespace\\2020\\_Self\\Blog\\Blog.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Looooooooop\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "D:\\VsCodespace\\2020\\_Self\\Blog\\Blog.Contract\\Blog.Contract.csproj": {
+                "projectPath": "D:\\VsCodespace\\2020\\_Self\\Blog\\Blog.Contract\\Blog.Contract.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

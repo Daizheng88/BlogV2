@@ -1,0 +1,7 @@
+D:\VsCodespace\2020\_Self\Blog\Blog.Infrastructure\bin\Debug\netcoreapp3.1\Blog.Infrastructure.deps.json
+D:\VsCodespace\2020\_Self\Blog\Blog.Infrastructure\bin\Debug\netcoreapp3.1\Blog.Infrastructure.dll
+D:\VsCodespace\2020\_Self\Blog\Blog.Infrastructure\obj\Debug\netcoreapp3.1\Blog.Infrastructure.csprojAssemblyReference.cache
+D:\VsCodespace\2020\_Self\Blog\Blog.Infrastructure\obj\Debug\netcoreapp3.1\Blog.Infrastructure.AssemblyInfoInputs.cache
+D:\VsCodespace\2020\_Self\Blog\Blog.Infrastructure\obj\Debug\netcoreapp3.1\Blog.Infrastructure.AssemblyInfo.cs
+D:\VsCodespace\2020\_Self\Blog\Blog.Infrastructure\bin\Debug\netcoreapp3.1\Blog.Contract.dll
+D:\VsCodespace\2020\_Self\Blog\Blog.Infrastructure\bin\Debug\netcoreapp3.1\Blog.Core.dll

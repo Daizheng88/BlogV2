@@ -1,0 +1,5 @@
+D:\VsCodespace\2020\_Self\Blog\Blog.Application\bin\Debug\netcoreapp3.1\Blog.Contract.dll
+D:\VsCodespace\2020\_Self\Blog\Blog.Application\obj\Debug\netcoreapp3.1\Blog.Application.csprojAssemblyReference.cache
+D:\VsCodespace\2020\_Self\Blog\Blog.Application\obj\Debug\netcoreapp3.1\Blog.Application.AssemblyInfoInputs.cache
+D:\VsCodespace\2020\_Self\Blog\Blog.Application\obj\Debug\netcoreapp3.1\Blog.Application.AssemblyInfo.cs
+D:\VsCodespace\2020\_Self\Blog\Blog.Application\bin\Debug\netcoreapp3.1\Blog.Core.dll
