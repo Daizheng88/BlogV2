@@ -28,9 +28,9 @@ namespace Blog.Infrastructure.Core
         {
             string sql = new StringBuilder()
                 .AppendFormat("Insert Blog_Topics (")
-                .AppendFormat(" Id, Creator, CreateTime, TypeId, Title, Content, Comments, Likes ")
+                .AppendFormat(" Id, Creator, CreateTime, IsDeleted, TypeId, Title, Content, Comments, Likes ")
                 .AppendFormat(") Values (")
-                .AppendFormat(" $Id, $Creator, $CreateTime, $TypeId, @Title, @Content, $Comments, $Likes ")
+                .AppendFormat(" $Id, $Creator, $CreateTime, $IsDeleted, $TypeId, @Title, @Content, $Comments, $Likes ")
                 .AppendFormat(")")
                 .ToString()
                 ;
@@ -48,7 +48,9 @@ namespace Blog.Infrastructure.Core
             string sql = new StringBuilder()
                 .AppendFormat("Update Blog_Topics Set")
                 .AppendFormatIf(entity.Title.HasCharacters(), " Title = @Title,")
-                .AppendFormatIf(entity.Content.HasCharacters(), " Content = @Content ")
+                .AppendFormatIf(entity.Content.HasCharacters(), " Content = @Content, ")
+                .AppendFormat(" Modifier = $Modifier, ")
+                .AppendFormat(" ModifyTime = $ModifyTime ")
                 .AppendFormat("Where Id = $Id")
                 .ToString()
                 ;

@@ -3,9 +3,9 @@ using Blog.Application.Bus;
 using Blog.Application.Bus.Notify;
 using Blog.Application.Core.User.Commands;
 using Blog.Contract.Injections;
+using Blog.Core.Repositories.User;
+using Blog.Core.Repositories.User.Inputs;
 using Blog.Core.UnitOfWork;
-using Blog.Core.User;
-using Blog.Core.User.Dtos;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
@@ -13,17 +13,8 @@ using System.Threading.Tasks;
 namespace Blog.Application.Core.User.Handlers
 {
     [Scope(Range = 2)]
-    public class RegisterUserHandler : IRequestHandler<RegisterUserCommand, Unit>,
-        IRequestHandler<UpdateUserCommand, Unit>
+    public class RegisterUserHandler : CommandHandler, IRequestHandler<RegisterUserCommand, Unit>, IRequestHandler<UpdateUserCommand, Unit>
     {
-        public IMapper Mapper { get; set; }
-
-        public IMediatorHandler Bus { get; set; }
-
-        public INotifier Notifier { get; set; }
-
-        public IUnitOfWork UnitOfWork { get; set; }
-
         public IUserRepository UserRepository { get; set; }
 
         public Task<Unit> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
@@ -36,7 +27,7 @@ namespace Blog.Application.Core.User.Handlers
             }
 
             // 通知仓储保存数据
-            this.UserRepository.Insert(this.Mapper.Map<UserDto>(request));
+            this.UserRepository.Insert(this.Mapper.Map<UserInput>(request));
 
             // 提交事务
             this.UnitOfWork.SaveChanges()

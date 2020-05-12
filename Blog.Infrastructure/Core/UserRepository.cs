@@ -28,9 +28,9 @@ namespace Blog.Infrastructure.Core
         {
             string sql = new StringBuilder()
                 .AppendFormat("Insert Sys_Users (")
-                .AppendFormat(" Id, Creator, CreateTime, EMail, Password, Name, Signature ")
+                .AppendFormat(" Id, Creator, CreateTime, IsDeleted, EMail, Password, Name, Signature ")
                 .AppendFormat(") Values (")
-                .AppendFormat(" $Id, $Creator, $CreateTime, @EMail, @Password, @Name, @Signature ")
+                .AppendFormat(" $Id, $Creator, $CreateTime, $IsDeleted, @EMail, @Password, @Name, @Signature ")
                 .AppendFormat(")")
                 .ToString()
                 ;

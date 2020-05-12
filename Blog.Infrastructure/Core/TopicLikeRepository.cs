@@ -2,7 +2,6 @@
 using Blog.Core.Repositories.Topic;
 using Blog.Core.Repositories.Topic.Inputs;
 using Blog.Infrastructure.Ado;
-using System;
 using System.Text;
 
 namespace Blog.Infrastructure.Core
@@ -28,9 +27,9 @@ namespace Blog.Infrastructure.Core
         {
             string sql = new StringBuilder()
                 .AppendFormat("Insert Blog_TopicLikes (")
-                .AppendFormat(" Id, Creator, CreateTime, TopicId, UserId ")
+                .AppendFormat(" Id, Creator, CreateTime, IsDeleted, TopicId, UserId ")
                 .AppendFormat(") Values (")
-                .AppendFormat(" $Id, $Creator, $CreateTime, $TopicId, $UserId ")
+                .AppendFormat(" $Id, $Creator, $CreateTime, $IsDeleted, $TopicId, $UserId ")
                 .AppendFormat(")")
                 .ToString()
                 ;
