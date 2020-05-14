@@ -5,7 +5,7 @@ namespace Blog.Core.Repositories.Topic
     /// <summary>
     /// 主题点赞仓储
     /// </summary>
-    public interface ITopicLikesRepository : IBaseRepository<TopicLikeInput>
+    public interface ITopicLikeRepository : IBaseRepository<TopicLikeInput>
     {
     }
 }

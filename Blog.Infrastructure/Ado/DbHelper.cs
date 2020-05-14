@@ -1,6 +1,11 @@
 ﻿using Blog.Contract.Injections;
 using Microsoft.Extensions.Configuration;
+using SqlKata;
+using SqlKata.Compilers;
+using SqlKata.Execution;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Blog.Infrastructure.Ado
@@ -8,95 +13,70 @@ namespace Blog.Infrastructure.Ado
     [Scope]
     public class DbHelper : IDbHelper
     {
-        public DbHelper()
-        {
-            this.Config = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
-            this.Init();
-        }
-
         public DbHelper(IConfiguration config)
         {
             this.Config = config;
-            this.Init();
+
+            // 取得连接字符串
+            this.Connection = new SqlConnection(this.Config.GetConnectionString("Blog"));
+
+            // 取得工厂对象
+            this.Factory = new QueryFactory(this.Connection, new SqlServerCompiler());
+
+            // 取得队列
+            this.Queries = new Queue<Query>();
         }
 
-        private void Init()
-        {
-            string blogString = this.Config.GetConnectionString("Blog");
-            this.Connection = new SqlConnection(blogString);
-        }
+        public IConfiguration Config { get; }
 
-        public IConfiguration Config { get; private set; }
+        public SqlConnection Connection { get; set; }
 
-        public SqlConnection Connection { get; private set; }
+        public QueryFactory Factory { get; set; }
 
-        // 命令队列
-        private Queue<SqlCommand> Commands { get; set; } = new Queue<SqlCommand>();
-
-        // 将命令加入队列
-        public void Execute(string sql, object parameter = null)
-        {
-            SqlCommand command = SqlParser.Parse(sql, parameter);
-            command.Connection = this.Connection;
-            this.Commands.Enqueue(command);
-        }
-
-        // 将命令加入队列
-        public void Execute(string sql, Dictionary<string, object> parameter = null)
-        {
-            SqlCommand command = SqlParser.Parse(sql, parameter);
-            command.Connection = this.Connection;
-            this.Commands.Enqueue(command);
-        }
-
-        // 提交事务
-        public int SaveChanges()
-        {
-            if (this.Commands.Count == 0)
-            {
-                return 0;
-            }
-
-            try
-            {
-                this.Connection.Open();
-
-                int affected = 0;
-                using (SqlTransaction transaction = this.Connection.BeginTransaction())
-                {
-                    SqlCommand command;
-
-                    try
-                    {
-                        while ((command = Commands.Dequeue()) != null)
-                        {
-                            command.Transaction = transaction;
-                            affected += command.ExecuteNonQuery();
-                        }
-
-                        transaction.Commit();
-                        return affected;
-                    }
-                    catch
-                    {
-                        transaction.Rollback();
-                        throw;
-                    }
-                }
-            }
-            finally
-            {
-                this.Connection.Close();
-            }
-        }
+        public Queue<Query> Queries { get; set; }
 
         public void Dispose()
         {
-            this.Commands.Clear();
             this.Connection.Dispose();
-
-            this.Commands = null;
             this.Connection = null;
+        }
+
+        public void Execute(Func<Query, Query> callback)
+        {
+             Queries.Enqueue(callback(this.Factory.Query()));
+        }
+
+        public void Execute(string tablename, Func<Query, Query> callback)
+        {
+            Queries.Enqueue(callback(this.Factory.Query(tablename)));
+        }
+
+        public int SaveChanges()
+        {
+            int affected = 0;
+            using (IDbTransaction transaction = this.Connection.BeginTransaction())
+            {
+                try
+                {
+                    Query item;
+                    while ((item = Queries.Dequeue()) != null)
+                    {
+                        // 执行Sql
+                        affected += this.Factory.Execute(item, transaction, CommandType.Text);
+                    }
+
+                    // 提交事务
+                    transaction.Commit();
+
+                    return affected;
+                }
+                catch
+                {
+                    // 回滚事务
+                    transaction.Rollback();
+                    throw;
+                }
+            }
         }
     }
 }

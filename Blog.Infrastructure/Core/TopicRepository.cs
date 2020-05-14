@@ -1,61 +1,48 @@
-﻿using Blog.Contract.Infrastructure.Extensions;
-using Blog.Contract.Injections;
+﻿using Blog.Contract.Injections;
 using Blog.Core.Repositories.Topic;
 using Blog.Core.Repositories.Topic.Inputs;
 using Blog.Infrastructure.Ado;
-using System.Text;
+using SqlKata;
 
 namespace Blog.Infrastructure.Core
 {
     [Scope]
     public class TopicRepository : ITopicRepository
     {
+        private string Table { get { return "Blog_Topics"; } }
+
         public IDbHelper DbHelper { get; set; }
 
         public void Delete(TopicInput entity)
         {
-            string sql = new StringBuilder()
-                .AppendFormat("Update Blog_Topics Set")
-                .AppendFormat(" IsDeleted = 1, Modifier = $Modifier, ModifyTime = $ModifyTime ")
-                .AppendFormat("Where Id = $Id ")
-                .ToString()
-                ;
+            entity.IsDeleted = 1;
 
-            this.DbHelper.Execute(sql, entity);
+            this.DbHelper.Execute(this.Table, proc =>
+                proc.AsUpdate(entity, "IsDeleted", "Modifier", "ModifyTime")
+                    .Where("Id", entity.Id)
+            );
         }
 
         public void Insert(TopicInput entity)
         {
-            string sql = new StringBuilder()
-                .AppendFormat("Insert Blog_Topics (")
-                .AppendFormat(" Id, Creator, CreateTime, IsDeleted, TypeId, Title, Content, Comments, Likes ")
-                .AppendFormat(") Values (")
-                .AppendFormat(" $Id, $Creator, $CreateTime, $IsDeleted, $TypeId, @Title, @Content, $Comments, $Likes ")
-                .AppendFormat(")")
-                .ToString()
-                ;
-
-            this.DbHelper.Execute(sql, entity);
+            this.DbHelper.Execute(this.Table, proc =>
+                proc.AsInsert(entity, "Id", "Creator", "CreateTime", "IsDeleted", "TypeId", "Title", "Content", "Likes", "Comments")
+            );
         }
 
         public void Update(TopicInput entity)
         {
-            if (entity.Title.NoCharacters() && entity.Content.NoCharacters())
-            {
-                return;
-            }
+            this.DbHelper.Execute(this.Table, proc =>
+                proc.AsUpdate(entity, "TypeId", "Title", "Content", "Modifier", "ModifyTime")
+                    .Where("Id", entity.Id)
+            );
+        }
 
-            string sql = new StringBuilder()
-                .AppendFormat("Update Blog_Topics Set")
-                .AppendFormatIf(entity.Title.HasCharacters(), " Title = @Title,")
-                .AppendFormatIf(entity.Content.HasCharacters(), " Content = @Content, ")
-                .AppendFormat(" Modifier = $Modifier, ")
-                .AppendFormat(" ModifyTime = $ModifyTime ")
-                .AppendFormat("Where Id = $Id")
-                .ToString()
-                ;
-
-            this.DbHelper.Execute(sql, entity);
+        public void UpdateLikes(TopicInput entity)
+        {
+            this.DbHelper.Execute(this.Table, proc =>
+                proc.AsUpdate(new[] { "Likes" }, new[] { Expressions.UnsafeLiteral("Likes + 1") })
+            );
         }
     }
 }

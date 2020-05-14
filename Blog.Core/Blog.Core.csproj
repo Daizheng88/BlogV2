@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Repositories\Comment\Outputs\" />
+    <Folder Include="Repositories\Modules\Outputs\" />
+    <Folder Include="Repositories\Type\Inputs\" />
+    <Folder Include="Repositories\Type\Outputs\" />
     <Folder Include="Repositories\User\Outputs\" />
   </ItemGroup>
 

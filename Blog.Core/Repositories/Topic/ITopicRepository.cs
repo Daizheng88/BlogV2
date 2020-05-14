@@ -8,5 +8,7 @@ namespace Blog.Core.Repositories.Topic
     public interface ITopicRepository : IBaseRepository<TopicInput>
     {
         void Update(TopicInput entity);
+
+        void UpdateLikes(TopicInput entity);
     }
 }

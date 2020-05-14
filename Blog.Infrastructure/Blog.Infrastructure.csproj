@@ -20,4 +20,13 @@
     <ProjectReference Include="..\Blog.Core\Blog.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="SqlKata">
+      <HintPath>bin\SqlKata.dll</HintPath>
+    </Reference>
+    <Reference Include="SqlKata.Execution">
+      <HintPath>bin\SqlKata.Execution.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

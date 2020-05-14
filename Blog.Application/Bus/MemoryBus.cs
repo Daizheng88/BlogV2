@@ -1,17 +1,14 @@
 ﻿using Blog.Application.Core;
+using Blog.Contract.Injections;
 using MediatR;
 using System.Threading.Tasks;
 
 namespace Blog.Application.Bus
 {
+    [Scope]
     public class MemoryBus : IMediatorHandler
     {
-        public MemoryBus(IMediator mediator)
-        {
-            this.Mediator = mediator;
-        }
-
-        public IMediator Mediator { get; }
+        public IMediator Mediator { get; set; }
 
         public Task SendCommand<T>(T command) where T : AbstractCommand
         {

@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using SqlKata;
+using System;
 
 namespace Blog.Infrastructure.Ado
 {
@@ -7,8 +7,8 @@ namespace Blog.Infrastructure.Ado
     {
         public int SaveChanges();
 
-        public void Execute(string sql, object parameter = null);
+        public void Execute(string tablename, Func<Query, Query> callback);
 
-        public void Execute(string sql, Dictionary<string, object> parameter = null);
+        public void Execute(Func<Query, Query> callback);
     }
 }
