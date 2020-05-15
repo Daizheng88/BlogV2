@@ -7,6 +7,6 @@ namespace Blog.Core.Repositories.Comment
     /// </summary>
     public interface ICommentRepository : IBaseRepository<CommentInput>
     {
-        
+        void UpdateLikes(CommentInput entity);
     }
 }

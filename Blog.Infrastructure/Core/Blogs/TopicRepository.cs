@@ -40,8 +40,11 @@ namespace Blog.Infrastructure.Core
 
         public void UpdateLikes(TopicInput entity)
         {
+            object value = Expressions.UnsafeLiteral($"Likes + {entity.Likes}");
+
             this.DbHelper.Execute(this.Table, proc =>
-                proc.AsUpdate(new[] { "Likes" }, new[] { Expressions.UnsafeLiteral("Likes + 1") })
+                proc.AsUpdate(new[] { "Likes" }, new[] { value })
+                    .Where("Id", entity.Id)
             );
         }
     }

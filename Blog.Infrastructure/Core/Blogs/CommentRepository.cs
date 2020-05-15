@@ -2,6 +2,7 @@
 using Blog.Core.Repositories.Comment;
 using Blog.Core.Repositories.Comment.Inputs;
 using Blog.Infrastructure.Ado;
+using SqlKata;
 using System;
 
 namespace Blog.Infrastructure.Core
@@ -27,6 +28,16 @@ namespace Blog.Infrastructure.Core
         {
             this.DbHelper.Execute(this.Table, proc =>
                 proc.AsInsert(entity, "Id", "Creator", "CreateTime", "IsDeleted", "Content", "TopicId", "UserId", "Likes")
+            );
+        }
+
+        public void UpdateLikes(CommentInput entity)
+        {
+            object value = Expressions.UnsafeLiteral($"Likes + {entity.Likes}");
+
+            this.DbHelper.Execute(this.Table, proc =>
+                proc.AsUpdate(new[] { "Likes" }, new[] { value })
+                    .Where("Id", entity.Id)
             );
         }
     }

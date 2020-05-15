@@ -1,4 +1,6 @@
-﻿using Blog.Contract.Injections;
+﻿using Blog.Contract.Infrastructure.Extensions;
+using Blog.Contract.Injections;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using SqlKata;
 using SqlKata.Compilers;
@@ -13,12 +15,14 @@ namespace Blog.Infrastructure.Ado
     [Scope]
     public class DbHelper : IDbHelper
     {
-        public DbHelper(IConfiguration config)
+        public DbHelper(IConfiguration config, IHostingEnvironment environment)
         {
             this.Config = config;
 
-            // 取得连接字符串
-            this.Connection = new SqlConnection(this.Config.GetConnectionString("Blog"));
+            // 取得连接字符串 (DES 解密)
+            this.Connection = environment.IsDevelopment()
+                ? new SqlConnection(this.Config.GetConnectionString("Blog_Dev"))
+                : new SqlConnection(this.Config.GetConnectionString("Blog").DESDecrypt());
 
             // 取得工厂对象
             this.Factory = new QueryFactory(this.Connection, new SqlServerCompiler());
