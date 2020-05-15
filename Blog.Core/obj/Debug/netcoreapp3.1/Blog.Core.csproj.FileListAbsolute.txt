@@ -3,3 +3,10 @@ D:\VsCodespace\2020\_Self\Blog\Blog.Core\obj\Debug\netcoreapp3.1\Blog.Core.cspro
 D:\VsCodespace\2020\_Self\Blog\Blog.Core\obj\Debug\netcoreapp3.1\Blog.Core.AssemblyInfoInputs.cache
 D:\VsCodespace\2020\_Self\Blog\Blog.Core\obj\Debug\netcoreapp3.1\Blog.Core.AssemblyInfo.cs
 D:\VsCodespace\2020\_Self\Blog\Blog.Core\obj\Debug\netcoreapp3.1\Blog.Core.csproj.CoreCompileInputs.cache
+D:\VsCodespace\2020\_Self\Blog\Blog.Core\bin\Debug\netcoreapp3.1\Blog.Core.deps.json
+D:\VsCodespace\2020\_Self\Blog\Blog.Core\bin\Debug\netcoreapp3.1\Blog.Core.dll
+D:\VsCodespace\2020\_Self\Blog\Blog.Core\bin\Debug\netcoreapp3.1\Blog.Core.pdb
+D:\VsCodespace\2020\_Self\Blog\Blog.Core\bin\Debug\netcoreapp3.1\Blog.Contract.pdb
+D:\VsCodespace\2020\_Self\Blog\Blog.Core\obj\Debug\netcoreapp3.1\Blog.Core.csproj.CopyComplete
+D:\VsCodespace\2020\_Self\Blog\Blog.Core\obj\Debug\netcoreapp3.1\Blog.Core.dll
+D:\VsCodespace\2020\_Self\Blog\Blog.Core\obj\Debug\netcoreapp3.1\Blog.Core.pdb

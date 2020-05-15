@@ -6,3 +6,11 @@ D:\VsCodespace\2020\_Self\Blog\Blog.Infrastructure\obj\Debug\netcoreapp3.1\Blog.
 D:\VsCodespace\2020\_Self\Blog\Blog.Infrastructure\bin\Debug\netcoreapp3.1\Blog.Contract.dll
 D:\VsCodespace\2020\_Self\Blog\Blog.Infrastructure\bin\Debug\netcoreapp3.1\Blog.Core.dll
 D:\VsCodespace\2020\_Self\Blog\Blog.Infrastructure\obj\Debug\netcoreapp3.1\Blog.Infrastructure.csproj.CoreCompileInputs.cache
+D:\VsCodespace\2020\_Self\Blog\Blog.Infrastructure\bin\Debug\netcoreapp3.1\Blog.Infrastructure.pdb
+D:\VsCodespace\2020\_Self\Blog\Blog.Infrastructure\bin\Debug\netcoreapp3.1\SqlKata.dll
+D:\VsCodespace\2020\_Self\Blog\Blog.Infrastructure\bin\Debug\netcoreapp3.1\SqlKata.Execution.dll
+D:\VsCodespace\2020\_Self\Blog\Blog.Infrastructure\bin\Debug\netcoreapp3.1\Blog.Contract.pdb
+D:\VsCodespace\2020\_Self\Blog\Blog.Infrastructure\bin\Debug\netcoreapp3.1\Blog.Core.pdb
+D:\VsCodespace\2020\_Self\Blog\Blog.Infrastructure\obj\Debug\netcoreapp3.1\Blog.Infrastructure.csproj.CopyComplete
+D:\VsCodespace\2020\_Self\Blog\Blog.Infrastructure\obj\Debug\netcoreapp3.1\Blog.Infrastructure.dll
+D:\VsCodespace\2020\_Self\Blog\Blog.Infrastructure\obj\Debug\netcoreapp3.1\Blog.Infrastructure.pdb

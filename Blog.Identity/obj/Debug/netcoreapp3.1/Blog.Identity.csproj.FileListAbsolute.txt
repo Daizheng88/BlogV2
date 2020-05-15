@@ -1,0 +1,8 @@
+D:\VsCodespace\2020\_Self\Blog\Blog.Identity\bin\Debug\netcoreapp3.1\Blog.Identity.deps.json
+D:\VsCodespace\2020\_Self\Blog\Blog.Identity\bin\Debug\netcoreapp3.1\Blog.Identity.dll
+D:\VsCodespace\2020\_Self\Blog\Blog.Identity\bin\Debug\netcoreapp3.1\Blog.Identity.pdb
+D:\VsCodespace\2020\_Self\Blog\Blog.Identity\obj\Debug\netcoreapp3.1\Blog.Identity.csproj.CoreCompileInputs.cache
+D:\VsCodespace\2020\_Self\Blog\Blog.Identity\obj\Debug\netcoreapp3.1\Blog.Identity.AssemblyInfoInputs.cache
+D:\VsCodespace\2020\_Self\Blog\Blog.Identity\obj\Debug\netcoreapp3.1\Blog.Identity.AssemblyInfo.cs
+D:\VsCodespace\2020\_Self\Blog\Blog.Identity\obj\Debug\netcoreapp3.1\Blog.Identity.dll
+D:\VsCodespace\2020\_Self\Blog\Blog.Identity\obj\Debug\netcoreapp3.1\Blog.Identity.pdb

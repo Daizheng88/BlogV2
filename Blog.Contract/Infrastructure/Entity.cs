@@ -15,7 +15,7 @@ namespace Blog.Contract.Infrastructure
         /// <summary>
         /// 是否删除
         /// </summary>
-        public int IsDeleted { get; set; } = DbBoolean.False;
+        public int IsDeleted { get; set; }
 
         /// <summary>
         /// 创建人
